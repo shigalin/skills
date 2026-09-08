@@ -1,18 +1,17 @@
 <p align="center">
-  <img src="./icon.svg" alt="lencx skills logo" width="160">
+  <img src="./icon.svg" alt="shigalin skills logo" width="160">
 </p>
 
-<h1 align="center">lencx-skills</h1>
+<h1 align="center">shigalin-skills</h1>
 
 <p align="center">
-  <a href="https://skills.sh/lencx/skills"><img src="https://skills.sh/b/lencx/skills" alt="skills.sh"></a>
+  <a href="https://skills.sh/shigalin/skills"><img src="https://skills.sh/b/shigalin/skills" alt="skills.sh"></a>
 </p>
 
-> 💡 Rooted in lencx’s hands-on experience — turning hard-won lessons into repeatable execution.
+> 💡 Originally rooted in lencx’s hands-on experience — turning hard-won lessons into repeatable execution.
 
-English | [中文](https://skills.lencx.me/zh/)
+[GitHub](https://github.com/shigalin/skills)
 
-<a href="https://www.buymeacoffee.com/lencx" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145px !important;" ></a>
 
 ## Installation
 
@@ -21,17 +20,17 @@ Choose either the skills installer or the native plugin. Using both makes each s
 ### Quick Install (Recommended)
 
 ```bash
-npx skills@latest add lencx/skills
+npx skills@latest add shigalin/skills
 ```
 
 ### Specific Install (Global)
 
 ```bash
 # Claude Code
-npx skills@latest add lencx/skills -a claude-code -g
+npx skills@latest add shigalin/skills -a claude-code -g
 
 # Codex
-npx skills@latest add lencx/skills -a codex -g
+npx skills@latest add shigalin/skills -a codex -g
 ```
 
 ### Plugin Install
@@ -39,15 +38,15 @@ npx skills@latest add lencx/skills -a codex -g
 #### Codex
 
 ```bash
-codex plugin marketplace add lencx/skills
-codex plugin add lencx-skills@lencx
+codex plugin marketplace add shigalin/skills
+codex plugin add shigalin-skills@shigalin
 ```
 
 #### Claude Code
 
 ```bash
-claude plugin marketplace add lencx/skills
-claude plugin install lencx-skills@lencx
+claude plugin marketplace add shigalin/skills
+claude plugin install shigalin-skills@shigalin
 ```
 
 ## Skills

@@ -1,13 +1,13 @@
 {
-  "name": "lencx-skills",
+  "name": "shigalin-skills",
   "version": "1.4.0",
   "description": "A curated collection of reliable workflows for AI agents.",
   "author": {
-    "name": "lencx",
-    "url": "https://lencx.me"
+    "name": "shigalin",
+    "url": "https://github.com/shigalin"
   },
-  "homepage": "https://skills.lencx.me",
-  "repository": "https://github.com/lencx/skills",
+  "homepage": "https://github.com/shigalin/skills",
+  "repository": "https://github.com/shigalin/skills",
   "license": "MIT",
   "keywords": [
     "ai-agents",
@@ -16,16 +16,16 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "lencx skills",
+    "displayName": "shigalin skills",
     "shortDescription": "Reliable agent workflows",
     "longDescription": "Reusable workflows for load-bearing architecture design, review, and governance, plus risk-scaled repository execution and code-evidence work.",
-    "developerName": "lencx",
+    "developerName": "shigalin",
     "category": "Developer Tools",
     "capabilities": [
       "Load-bearing architecture design and governance",
       "Risk-scaled repository execution and code evidence"
     ],
-    "websiteURL": "https://skills.lencx.me",
+    "websiteURL": "https://github.com/shigalin/skills",
     "defaultPrompt": [
       "Use keel to design, review, or govern this project's load-bearing architecture.",
       "Use coding-protocol for this repository's implementation, debugging, or code review."

@@ -1,13 +1,13 @@
 {
-  "name": "lencx",
-  "description": "Reliable agent workflows published by lencx.",
+  "name": "shigalin",
+  "description": "Reliable agent workflows published by shigalin.",
   "owner": {
-    "name": "lencx",
-    "url": "https://lencx.me"
+    "name": "shigalin",
+    "url": "https://github.com/shigalin"
   },
   "plugins": [
     {
-      "name": "lencx-skills",
+      "name": "shigalin-skills",
       "source": "./",
       "description": "A curated collection of reliable workflows for AI agents.",
       "category": "development",

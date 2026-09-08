@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "lencx-skills",
+  "name": "shigalin-skills",
   "version": "1.4.0",
   "description": "A curated collection of reliable workflows for AI agents.",
   "author": {
-    "name": "lencx",
-    "url": "https://lencx.me"
+    "name": "shigalin",
+    "url": "https://github.com/shigalin"
   },
-  "homepage": "https://skills.lencx.me",
-  "repository": "https://github.com/lencx/skills",
+  "homepage": "https://github.com/shigalin/skills",
+  "repository": "https://github.com/shigalin/skills",
   "license": "MIT",
   "keywords": [
     "ai-agents",

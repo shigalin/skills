@@ -28,7 +28,7 @@ done
 
 mkdir -p "${output_path}"
 output_dir="$(CDPATH= cd -- "${output_path}" && pwd -P)"
-archive_name="lencx-skills-codex.zip"
+archive_name="shigalin-skills-codex.zip"
 temp_dir="$(mktemp -d)"
 
 cleanup() {
