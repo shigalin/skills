@@ -65,6 +65,14 @@ Using them together broadens coverage across product design, engineering practic
 
 Tip: describe the goal, success criteria, and relevant constraints, then let the agent plan the steps. For example: "Implement this change and make sure the relevant tests pass."
 
+## Model guidance
+
+These skills apply shared task-level principles from provider prompting guides: complete authorized work, keep the requested scope, verify proportionately, and communicate results clearly. The test-commit conditions in coding-protocol are this repository's choice, informed by Anthropic's example, rather than a requirement shared by both guides.
+
+General guidance for independent tool calls, pending results, and user corrections remains in the skills where applicable. Provider-specific parameters and runtime mechanisms, including effort settings, progress rendering, async execution, conversation history, and compaction, belong to the host. The skills neither configure those mechanisms nor assume that delegation or async tools are available.
+
+Reference guides: [OpenAI latest model](https://developers.openai.com/api/docs/guides/latest-model), [Anthropic prompting guides](https://platform.claude.com/docs/zh-CN/build-with-claude/prompt-engineering/prompting-claude-fable-5-1). These adaptations are repository choices, not a measured performance claim; validate behavior on representative tasks in the intended client.
+
 ## License
 
 MIT

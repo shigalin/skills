@@ -29,17 +29,20 @@ This is a maintenance index for non-obvious failure mechanisms, not a requiremen
 | **Verification inflation** — running expensive broad checks or changing the environment when neither repository policy nor a focused workflow requires them and a cheaper check would provide the same confidence | 1 Scale By Risk; 7 Verify Proportionally |
 | **Dishonest green** — silencing a failing check (suppression comment, loosened assertion, skipped test, scope escape) instead of fixing the cause | 7 Verify Proportionally |
 | **Suppression absolutism** — refusing a narrow, documented boundary suppression even when the underlying source is immutable and the repository policy defines ownership and removal | 7 Verify Proportionally |
-| **Vacuous test** — a new or changed check has no demonstrated negative control and may pass without exercising the change | 7 Verify Proportionally |
+| **Vacuous test** — a new or changed check has no demonstrated negative control and may pass without exercising the change | 7 Verify Proportionally; verification.md |
 | **Bug-encoding test** — asserting the code's current output instead of the requested behavior, locking the defect in as truth | 7 Verify Proportionally |
 | **Representation-coupled verification** — asserting an incidental or private implementation representation as if it proved behavior, when that exact representation is not the documented contract or guard target | 7 Verify Proportionally |
 | **Thrashing** — repeated failed fix attempts that widen the blast radius or flip direction instead of stopping with a diagnosis | 7 Verify Proportionally |
 | **Unattended guessing** — with no user available to ask, material ambiguity silently downgrades to a confident guess | 3 Handle Material Uncertainty |
 | **Dropped requirements** — reporting done while parts of the request, a mixed task's applicable execution portion, or a focused workflow's primary completion criterion were silently dropped or reinterpreted | Applicability Gate (Mixed); Composition; 8 Report Only What Matters |
 | **Process noise** — applying execution ritual outside the protocol's scope, including continuing after its applicability gate excludes the task; narrating irrelevant process; overstating confidence; or compressing a required focused artifact in the name of brevity | Applicability Gate (Exit); 8 Report Only What Matters |
+| **Workflow recursion** — treating a skill under edit as active instructions, or requiring another skill on Exit, creates unrelated work or conflicts with a user's skill opt-out | Applicability Gate (Exit); Composition |
+| **Premature handoff** — a plan or repeated approval question replaces work already authorized and still executable | 3 Handle Material Uncertainty; 8 Report Only What Matters |
+| **Stale continuation** — a late or superseded tool result, or a mid-task correction, is applied without rechecking what still holds, reviving dropped decisions or losing pending requirements | 6 Respect Local Context |
 
 ## Effective working patterns
 
-**Tests first, when feasible.** Write tests first, then make them pass. This provides a concrete, self-verifiable objective. (Informs the bug-fix rungs in sections 1 and 7.)
+**Reproduce when useful.** When reproducing a defect or verifying critical behavior, a focused failing check can establish the target before the fix. Prefer existing checks; test-first is an option, not a default requirement for every edit. Whether a test is committed follows section 7; a scratch check can be discarded once it has served. (Informs the bug-fix rungs in sections 1 and 7.)
 
 **Naive-then-optimize.** Start with the obviously correct version, then optimize while preserving correctness. This reduces the risk of subtle bugs introduced by overly clever initial implementations. (Informs section 4.)
 

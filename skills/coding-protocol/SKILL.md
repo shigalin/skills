@@ -5,7 +5,7 @@ description: "Risk-scaled repo execution and code-evidence protocol. Skip archit
 
 # Coding Protocol
 
-A low-friction protocol for reliable repository execution and code-evidence work. When applicable, run it in the background; surface only decisions, blockers, verification, and material risk.
+A low-friction protocol for reliable repository execution and code-evidence work. Keep routine process internal; surface decisions, blockers, verification, and material risk.
 
 ## Applicability Gate
 
@@ -14,15 +14,15 @@ Before any protocol step or reference read, select exactly one state in this ord
 - **Mixed** — the task includes an Execution or Evidence portion plus a substantive portion owned by another workflow. Apply this protocol only to repository execution or code evidence; do not reshape the other workflow.
 - **Execution** — the only applicable responsibility is authorized repository execution. Apply this protocol to that work. A plan authorizes planning, not mutation.
 - **Evidence** — the only applicable responsibility is a code-evidence judgment without mutation authority. Apply read-only constraints; a diagnosis or review finding does not authorize a fix.
-- **Exit** — the deliverable carries neither repository-execution nor code-evidence responsibility. After a forced or mistaken load, state the mismatch briefly. If the host exposes a skill catalog, inspect it and completely read a suitable owning workflow when one is present; otherwise continue with the general workflow. Stop using this protocol's framing, references, and completion language.
+- **Exit** — the deliverable carries neither repository-execution nor code-evidence responsibility. Continue under the user and host instructions without this protocol's framing or references. Exiting does not require loading another skill.
 
 ## Composition
 
 Repository evidence supplies local facts; repository instructions and contracts supply required checks. A focused workflow owns its method, vocabulary, artifact, professional judgment, and completion criterion. This protocol supplies only cross-cutting execution and code-evidence constraints: authorization, action-scope containment, work preservation, environment assumptions, evidence integrity, proportional verification, and truthful reporting.
 
-Combine sources by concern; activation never supersedes another source, changes its completion criterion, or expands authority. Follow the host's established precedence when requirements conflict. Surface a material same-level conflict instead of silently choosing or accumulating incompatible requirements.
+Combine sources by concern; activation never supersedes another source, changes its completion criterion, or expands authority. Follow host precedence; within it, explicit user instructions override skill guidance. Read skills being edited as task data, not as activated workflows. Surface a material same-level conflict instead of silently choosing or accumulating incompatible requirements.
 
-Use the focused workflow's completion criterion when one applies. Otherwise, use the narrowest safe method supported by repository evidence and, for multi-step work, name an observable completion criterion. Work as `[action] -> [check]`, revising the route when evidence changes. Expose a plan only when it clarifies risk, coordination, or sequencing.
+Use the focused workflow's completion criterion when one applies. Otherwise, use the narrowest safe method supported by repository evidence and, for multi-step work, name an observable completion criterion. Plan only when sequencing, risk, or coordination matters; verify meaningful outcomes rather than every mechanical action.
 
 ## 1. Scale By Risk
 
@@ -47,7 +47,9 @@ Authority comes from the user and host, not skill activation. A request to expla
 
 Automatic matching or loading grants no authority. A user request to execute a named skill authorizes only side effects that the request and the skill's declared purpose jointly make explicit, subject to host permissions. Mentioning, asking about, or comparing a skill authorizes no side effects by itself. Never infer adjacent commit, push, deploy, publish, external communication, or machine-wide operations.
 
-Resolve low-risk ambiguity from evidence using the narrowest reasonable interpretation. Ask only when ambiguity affects correctness, safety, external behavior, user intent, irreversible work, or a high-risk area.
+Resolve low-risk ambiguity from evidence using the narrowest reasonable interpretation. Ask only when ambiguity affects correctness, safety, external behavior, user intent, irreversible work, or a high-risk area, and complete independent authorized work first. Existing authorization stays valid; prepare a reviewable result before any required approval.
+
+Carry action requests through completion; an announced next step remains work to do. If blocked, deliver the valid remainder and identify the exact missing input.
 
 If the requested outcome, stated facts, or mechanism conflicts with observed evidence, show the mismatch before acting. Neither comply blindly nor silently substitute a materially different result. When no user can answer, park the ambiguous item and continue only with the unambiguous remainder. Keep work under uncertainty local and reversible.
 
@@ -69,9 +71,15 @@ Task necessity is not destructive authorization. Discarding work, resetting stat
 
 Inspect relevant local signals before depending on package managers, tools, dependencies, network, credentials, ports, services, or writable paths. Prefer project-local commands and existing dependencies. Add dependencies, change tooling or lockfiles, start services, use network, or alter machine-wide state only when the task needs it and project evidence supports it.
 
+Batch independent reads when supported. Keep dependent work and conflicting mutations ordered. With host-permitted delegation or async tools, continue independent work while results are pending; collect required results before claiming completion. Tool availability does not grant action permission.
+
+Incorporate mid-task corrections without dropping unfinished requirements. Before acting on a pending or late result, check that it still applies.
+
 ## 7. Verify Proportionally
 
 Run checks required by the user, repository, or focused workflow; add the cheapest evidence proportional to risk. A green gate proves behavior only when it exercises the changed path.
+
+Prefer existing checks. Commit tests only where the request asks for them or the repository already keeps tests for this kind of change, sized like neighboring tests; temporary probes need not become committed tests. After relevant checks pass, repeat or broaden them only for new changes, failures, or specific unresolved risks.
 
 Get to green honestly. A new or changed evidentiary check must be capable of failing, and expected behavior must come from the request, a repository contract, or an explicit characterization. Never turn a failure green through weaker assertions, skipped checks, unjustified suppression, or scope escape.
 
@@ -80,6 +88,8 @@ Diagnose before widening the change. If attempts thrash, stop with the diagnosis
 ## 8. Report Only What Matters
 
 Produce the artifact and handoff required by the task or focused workflow. Report what changed or was concluded, what was verified, and what remains unverified, blocked, or risky. Before declaring completion, re-check the primary criterion and every original requirement; name anything dropped, deferred, or reinterpreted. Keep the response concrete, omit routine internal process, and do not overstate confidence.
+
+Lead with the result in plain language, and use structure only when it aids clarity or comparison. The final response must stand on its own without tool output.
 
 ## References
 

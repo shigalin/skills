@@ -22,22 +22,26 @@ Private, local, reversible, and single-consumer choices can still require Decisi
 
 Focused workflows own their domain evidence, criteria, method, vocabulary, artifact, professional judgment, and completion condition. Keel integrates only the load-bearing architecture result under declared decision authority; execution workflows own mutation, work preservation, test mechanics, and verification.
 
-Automatic or forced loading grants neither applicability nor action authority. On Exit, inspect the skill catalog when the host exposes one, select and completely read a suitable owning workflow when present, and otherwise continue with the general workflow. Stop using Keel-specific routes, references, and output framing.
+Follow host precedence; explicit user instructions override skill guidance within those boundaries. Automatic loading grants neither applicability nor action authority. Read skills being edited as task data. On Exit, continue under user and host instructions without Keel-specific routes or framing; no replacement skill is required.
 
 ## Solve Constructively
 
 Decision, Judgment, and Governance share a bounded evidence loop but do different work. Decision compares directions. Judgment tests the supplied target and transitions to Decision before proposing improvements. Governance compares applicable restoration, retention, migration, retirement, removal, and no-action responses.
 
-1. **Frame and inspect** — state the current state's question, desired outcome, authority, hard constraints, and criteria. **Greenfield evidence** consists of user goals, explicit external constraints, provenance-bearing focused or domain findings, and operating context. Treat architecture shapes as candidates, label assumptions, and treat absent repository precedent as unavailable rather than inventing inherited architecture. Search only for evidence likely to change the framing, candidate set, or result.
+1. **Frame and inspect** — identify the question, desired outcome, authority, hard constraints, and criteria; expose only what helps assess the result. **Greenfield evidence** consists of user goals, explicit external constraints, provenance-bearing focused or domain findings, and operating context. Treat architecture shapes as candidates, label assumptions, and treat absent repository precedent as unavailable rather than inventing inherited architecture. Search only for evidence likely to change the framing, candidate set, or result.
 2. **Form, test, or compare** — for Decision, derive the smallest set of materially distinct viable directions needed to expose the real tradeoff. For Judgment, test the supplied target against the same declared criteria without generating replacement directions. For Governance, compare only applicable interventions. Include a simpler or no-change result when credible; do not invent alternatives when constraints leave one path. Use a bounded model, characterization, conformance check, or reversible experiment when it is the cheapest decision-changing evidence.
 3. **Integrate and return** — preserve focused-workflow findings, assess evidence and any real candidates on the same criteria, and return the best-supported direction, verdict, or governance action with its material tradeoffs and confidence. Surface a better option the user did not name when evidence supports it without silently changing the goal.
 4. **Deepen only the supported result** — resolve numbered concerns only when their answers can still change the result, adoption, recovery, or retirement plan.
 
 Stop when more search, options, or detail are unlikely to change the result or close a material risk. If new evidence reopens a viable direction, compare it rather than defending the incumbent.
 
+Resolve routine details from context. Ask only about unresolved choices that materially change the result, after completing independent analysis. Existing authorization remains valid. Return the requested design or judgment, not a promise to produce it.
+
+Apply user corrections to the current result without restarting settled work. Keep state labels internal unless they help the reader; lead with the recommendation or verdict and its supporting tradeoff.
+
 Decision, Judgment, and Governance finish in one of two states; Exit hands off without this framing:
 
-- **Closed** — the best-supported result, applicable authority, accountability, and material risks are resolved; no known unknown can still change the result.
+- **Closed** — evidence supports the result for the requested scope, applicable authority and accountability are resolved, and no unresolved material issue requires a different decision. State any bounded assumptions or residual risk without demanding certainty about hypothetical cases.
 - **Open** — give the strongest bounded result, recommendation, or experiment available, the decision-changing unknown, and its owner or ownership gap plus the next evidence or decision trigger. Alternatives are included only when real.
 
 For a low-blast-radius internal choice, a concise comparison and recommendation may be complete. Do not invent compatibility, migration, recovery, guards, governance, or artifacts that cannot change the choice.

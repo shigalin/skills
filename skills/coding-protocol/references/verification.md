@@ -15,7 +15,7 @@ A new or changed evidentiary check needs one credible negative control:
 - plant a scoped violation; or
 - use a known violating input.
 
-Confirm the intended failure, then restore the exact pre-control state, including every pre-existing user change. If no safe control exists, report green without proved sensitivity.
+Confirm the intended failure, then restore the exact pre-control state, including every pre-existing user change. Existing compilers, syntax checks, and unchanged tests need no newly planted defect. If no safe control exists, report green without proved sensitivity and state that limit.
 
 Derive expected behavior from the request or authoritative contract. A characterization names the behavior frozen and why; copied current output alone is not a specification.
 
