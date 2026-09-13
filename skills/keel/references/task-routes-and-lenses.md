@@ -1,11 +1,11 @@
 # Task Routes And Lenses
 
-This file contains branch-specific concerns only. SKILL.md owns working-state
-selection, the constructive loop, Closed/Open completion, and sections 1–8.
+This file contains branch-specific concerns only. SKILL.md defines task scope,
+the constructive approach, Closed/Open completion, and sections 1–8.
 
 ## Task routes
 
-Choose a route after the working state and initial framing are clear. A route
+Use a route when it helps answer the architecture question. A route
 organizes deeper evidence; it does not preselect a solution or require a new
 artifact. If another route contributes a material concern, import that concern
 without duplicating the full route.
@@ -13,7 +13,7 @@ without duplicating the full route.
 | Route | Use when | Branch-specific concern |
 | --- | --- | --- |
 | `greenfield_design` | **Decision:** goals and external constraints exist without inherited repository architecture | apply SKILL.md's greenfield evidence rule; state assumptions, decision authority, and the cheapest way to test the result |
-| `architecture_review` | **Judgment:** a design, RFC, change set, or existing system needs a load-bearing adequacy, conformance, feasibility, or integration verdict | map material claims to evidence or explicit unknowns, preserve focused ownership, and transition to Decision before proposing authorized improvements |
+| `architecture_review` | **Judgment:** a design, RFC, change set, or existing system needs a load-bearing adequacy, conformance, feasibility, or integration verdict | map material claims to evidence or explicit unknowns, preserve focused ownership, and keep replacement design within authorized scope |
 | `boundary_change` | **Decision:** a contract, schema, export, flag, entry surface, or compatibility promise is added, widened, moved, or removed | identify affected consumers, decision authority, compatibility or cutover commitment, and proportionate verification |
 | `structural_refactor` | **Decision:** a load-bearing module or seam is split, merged, moved, rewritten, or generalized | apply SKILL.md's Target scope rule; preserve contracts and the deletion path |
 

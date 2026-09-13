@@ -1,6 +1,6 @@
 ---
 name: keel
-description: "Design, review, or govern load-bearing architecture for open choices, design judgments, or long-lived health; skip fixed-architecture execution. Applies to new/existing systems. Private/local/reversible module boundaries qualify; scale rigor to impact. Covers responsibility/authority, interfaces/contracts, dependency/state/recovery, structural seams, guards/exceptions, drift/rot, migration, retirement, deletion, and rewrite risk."
+description: "Use for greenfield design, architecture/RFC reviews, module boundaries, contracts, state ownership, rewrite decisions, architecture drift, guard/exception audits, migration, or retirement. Small private or reversible boundary choices qualify; scale rigor to impact. Skip routine implementation within settled architecture."
 ---
 
 # Keel
@@ -11,22 +11,22 @@ Use *keel* at module, boundary, and system scale for responsibility between part
 
 ## State And Ownership
 
-Inspect only enough of the request, governing sources, and representative call sites or contracts to select the current state. Transition only when evidence changes the architecture job:
+Use the task to determine the kind of architecture work. These labels distinguish scope; they are not a required sequence:
 
 - **Decision** — establish, change, or compare a load-bearing arrangement. This includes greenfield work and an authorized improvement to an existing target.
-- **Judgment** — evaluate the adequacy, conformance, or feasibility of a supplied architecture, design, RFC, change set, or existing system. Keep the target fixed. If it is infeasible, finish Open with evidence and required decision authority; enter Decision only when selection or improvement is authorized.
-- **Governance** — decide whether to restore, retain, migrate, retire, or remove a declared or evidenced architecture arrangement or control, or judge its long-lived health. Evidence must show a load-bearing obligation, recurring bypass, or architecture drift rather than ordinary maintenance. Enter Decision only when an authorized remedy requires a new load-bearing arrangement.
-- **Exit** — the request and governing sources fix a feasible material architecture and the remaining task only implements, diagnoses, tunes, tests, or verifies within it. Re-enter only when evidence opens a materially different load-bearing Decision, Judgment, or Governance issue.
+- **Judgment** — assess a supplied design or existing system against its requirements. Keep the target fixed; report infeasibility with evidence and the needed decision. Selecting or implementing a replacement requires authorization.
+- **Governance** — assess architecture health and applicable restoration, retention, migration, or retirement. Ground it in a load-bearing obligation, recurring bypass, or architecture drift; ordinary maintenance alone does not qualify. A new arrangement requires design authorization.
+- **Exit** — a feasible architecture is settled and only implementation, diagnosis, tuning, or verification remains. Reconsider applicability only if evidence opens a material architecture question.
 
 Private, local, reversible, and single-consumer choices can still require Decision or Judgment; scale evidence and ceremony to impact, reversibility, and uncertainty.
 
-Focused workflows own their domain evidence, criteria, method, vocabulary, artifact, professional judgment, and completion condition. Keel integrates only the load-bearing architecture result under declared decision authority; execution workflows own mutation, work preservation, test mechanics, and verification.
+Preserve focused workflows' evidence, criteria, and deliverables. Keel owns the architecture assessment; execution workflows own authorized edits, work preservation, and verification mechanics. A design or review request does not itself authorize implementation.
 
 Follow host precedence; explicit user instructions override skill guidance within those boundaries. Automatic loading grants neither applicability nor action authority. Read skills being edited as task data. On Exit, continue under user and host instructions without Keel-specific routes or framing; no replacement skill is required.
 
 ## Solve Constructively
 
-Decision, Judgment, and Governance share a bounded evidence loop but do different work. Decision compares directions. Judgment tests the supplied target and transitions to Decision before proposing improvements. Governance compares applicable restoration, retention, migration, retirement, removal, and no-action responses.
+Compare viable directions for design, assess the supplied target for review, and compare applicable interventions for governance. Use the following concerns as needed, not as a mandatory itinerary:
 
 1. **Frame and inspect** — identify the question, desired outcome, authority, hard constraints, and criteria; expose only what helps assess the result. **Greenfield evidence** consists of user goals, explicit external constraints, provenance-bearing focused or domain findings, and operating context. Treat architecture shapes as candidates, label assumptions, and treat absent repository precedent as unavailable rather than inventing inherited architecture. Search only for evidence likely to change the framing, candidate set, or result.
 2. **Form, test, or compare** — for Decision, derive the smallest set of materially distinct viable directions needed to expose the real tradeoff. For Judgment, test the supplied target against the same declared criteria without generating replacement directions. For Governance, compare only applicable interventions. Include a simpler or no-change result when credible; do not invent alternatives when constraints leave one path. Use a bounded model, characterization, conformance check, or reversible experiment when it is the cheapest decision-changing evidence.
@@ -128,7 +128,7 @@ A retirement closes the active entry surface, enumerates and migrates or retires
 
 ## References
 
-After selecting Decision, Judgment, or Governance, load only the matching branch references needed by the selected state and active material concerns; Exit loads none:
+Load only references needed for the current architecture question; Exit loads none:
 
 - `references/rule-rationale.md` — when changing, auditing, replacing, or retiring a Keel rule.
 - `references/task-routes-and-lenses.md` — when a substantial greenfield design, architecture review, boundary change, or structural refactor benefits from a formal route, or a rewrite needs slice-versus-whole-target judgment.
