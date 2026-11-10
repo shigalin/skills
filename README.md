@@ -83,6 +83,14 @@ Maintainers can build the Codex plugin archive with:
 
 The archive is written to `dist/shigalin-skills-codex.zip`. Pass a directory as the first argument to write it elsewhere.
 
+## Validation
+
+```bash
+python3 scripts/validate-skills.py
+```
+
+This checks skill frontmatter, reference paths, rule-rationale section mappings, manifest name and version consistency, and that `skills/` has not changed since the release tag matching the current version. Behavioral scenarios for comparing an agent with and without each skill live in [evals](./evals); they are run by hand.
+
 ## License
 
 MIT
