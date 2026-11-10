@@ -1,14 +1,10 @@
 # Task Routes And Lenses
 
-This file contains branch-specific concerns only. SKILL.md defines task scope,
-the constructive approach, Closed/Open completion, and sections 1–8.
+This file contains branch-specific concerns only. SKILL.md defines task scope, the constructive approach, Closed/Open completion, and sections 1–8.
 
 ## Task routes
 
-Use a route when it helps answer the architecture question. A route
-organizes deeper evidence; it does not preselect a solution or require a new
-artifact. If another route contributes a material concern, import that concern
-without duplicating the full route.
+Use a route when it helps answer the architecture question. A route organizes deeper evidence; it does not preselect a solution or require a new artifact. If another route contributes a material concern, import that concern without duplicating the full route.
 
 | Route | Use when | Branch-specific concern |
 | --- | --- | --- |
@@ -19,36 +15,22 @@ without duplicating the full route.
 
 Complete a selected route only when its branch-specific concern appears in the result or is recorded as an Open unknown. Treat SKILL.md sections 1–8 as the sole source of cross-cutting obligations.
 
-If evidence reopens a materially different direction, return to comparison
-instead of finishing the current route by inertia.
+If evidence reopens a materially different direction, return to comparison instead of finishing the current route by inertia.
 
 ## Rewrite branch
 
-For a `structural_refactor` that proposes a rewrite, apply SKILL.md's Target
-scope rule, derive the target terminal invariant from representative evidence,
-and start with the smallest independently replaceable implementation slice and
-its preserved contracts. Expand only when a bounded migration cannot close
-safely or carries greater evidenced migration or recovery risk.
+For a `structural_refactor` that proposes a rewrite, apply SKILL.md's Target scope rule, derive the target terminal invariant from representative evidence, and start with the smallest independently replaceable implementation slice and its preserved contracts. Expand only when a bounded migration cannot close safely or carries greater evidenced migration or recovery risk.
 
-A whole-target replacement is supported only when the target is bounded; its
-surfaces, dependents, state, and preserved contracts are known; acceptance
-evidence maps those contracts and the terminal invariant; runnable rollback or
-retreat evidence exists; and representative, materially distinct smaller slices
-do not reach the same invariant at equal or lower evidenced risk. Do not require
-proof against unbounded hypothetical slices.
+A whole-target replacement is supported only when the target is bounded; its surfaces, dependents, state, and preserved contracts are known; acceptance evidence maps those contracts and the terminal invariant; runnable rollback or retreat evidence exists; and representative, materially distinct smaller slices do not reach the same invariant at equal or lower evidenced risk. Do not require proof against unbounded hypothetical slices.
 
 ## Optional review prompts
 
-SKILL.md sections 1–8 are the source of these concerns. Ask only questions whose
-answers can change the recommendation or a material risk:
+SKILL.md sections 1–8 are the source of these concerns. Ask only questions whose answers can change the recommendation or a material risk:
 
 - Which concrete surfaces carry compatibility promises?
-- Which authority, ownership, writer, dependency, or projection relations
-  actually exist?
+- Which authority, ownership, writer, dependency, or projection relations actually exist?
 - Which negative or time-axis outcome could invalidate the direction?
-- Which guard, migration, recovery, or deletion evidence is necessary at this
-  blast radius?
-- What new concept or layer is added, what does it retire, and is a simpler
-  direction still viable?
+- Which guard, migration, recovery, or deletion evidence is necessary at this blast radius?
+- What new concept or layer is added, what does it retire, and is a simpler direction still viable?
 
 Group inapplicable concerns without producing an empty matrix.

@@ -5,9 +5,6 @@
 dist/
 evals/
 node_modules/
-.astro/
-.wrangler/
-.nimbus/
 
 # Local environment and secrets
 .env
@@ -34,6 +31,3 @@ pnpm-debug.log*
 /PRODUCT.md
 /docs/AGENT.md
 /docs/.research/
-
-# Documentation source is tracked only on the local docs branch
-/docs/

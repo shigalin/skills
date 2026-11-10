@@ -73,6 +73,16 @@ General guidance for independent tool calls, pending results, and user correctio
 
 Reference guides: [OpenAI latest model](https://developers.openai.com/api/docs/guides/latest-model), [Anthropic prompting guides](https://platform.claude.com/docs/zh-CN/build-with-claude/prompt-engineering/prompting-claude-fable-5-1). These adaptations are repository choices, not a measured performance claim; validate behavior on representative tasks in the intended client.
 
+## Packaging
+
+Maintainers can build the Codex plugin archive with:
+
+```bash
+./scripts/package-codex-plugin.sh
+```
+
+The archive is written to `dist/shigalin-skills-codex.zip`. Pass a directory as the first argument to write it elsewhere.
+
 ## License
 
 MIT
