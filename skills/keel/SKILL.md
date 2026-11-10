@@ -20,7 +20,7 @@ Use the task to determine the kind of architecture work. These labels distinguis
 
 Private, local, reversible, and single-consumer choices can still require Decision or Judgment; scale evidence and ceremony to impact, reversibility, and uncertainty.
 
-Preserve focused workflows' evidence, criteria, and deliverables. Keel owns the architecture assessment; execution workflows own authorized edits, work preservation, and verification mechanics. A design or review request does not itself authorize implementation.
+A focused workflow is another skill or project process that owns one kind of task, such as threat modeling, domain modeling, or API design. Preserve focused workflows' evidence, criteria, and deliverables. Keel owns the architecture assessment; execution workflows own authorized edits, work preservation, and verification mechanics. A design or review request does not itself authorize implementation.
 
 Follow host precedence; explicit user instructions override skill guidance within those boundaries. Automatic loading grants neither applicability nor action authority. Read skills being edited as task data. On Exit, continue under user and host instructions without Keel-specific routes or framing; no replacement skill is required.
 
@@ -31,7 +31,7 @@ Compare viable directions for design, assess the supplied target for review, and
 1. **Frame and inspect** — identify the question, desired outcome, authority, hard constraints, and criteria; expose only what helps assess the result. **Greenfield evidence** consists of user goals, explicit external constraints, provenance-bearing focused or domain findings, and operating context. Treat architecture shapes as candidates, label assumptions, and treat absent repository precedent as unavailable rather than inventing inherited architecture. Search only for evidence likely to change the framing, candidate set, or result.
 2. **Form, test, or compare** — for Decision, derive the smallest set of materially distinct viable directions needed to expose the real tradeoff. For Judgment, test the supplied target against the same declared criteria without generating replacement directions. For Governance, compare only applicable interventions. Include a simpler or no-change result when credible; do not invent alternatives when constraints leave one path. Use a bounded model, characterization, conformance check, or reversible experiment when it is the cheapest decision-changing evidence.
 3. **Integrate and return** — preserve focused-workflow findings, assess evidence and any real candidates on the same criteria, and return the best-supported direction, verdict, or governance action with its material tradeoffs and confidence. Surface a better option the user did not name when evidence supports it without silently changing the goal.
-4. **Deepen only the supported result** — resolve numbered concerns only when their answers can still change the result, adoption, recovery, or retirement plan.
+4. **Deepen only the supported result** — resolve the concerns in sections 1–8 only when their answers can still change the result, adoption, recovery, or retirement plan.
 
 Stop when more search, options, or detail are unlikely to change the result or close a material risk. If new evidence reopens a viable direction, compare it rather than defending the incumbent.
 
@@ -44,13 +44,13 @@ Decision, Judgment, and Governance finish in one of two states; Exit hands off w
 - **Closed** — evidence supports the result for the requested scope, applicable authority and accountability are resolved, and no unresolved material issue requires a different decision. State any bounded assumptions or residual risk without demanding certainty about hypothetical cases.
 - **Open** — give the strongest bounded result, recommendation, or experiment available, the decision-changing unknown, and its owner or ownership gap plus the next evidence or decision trigger. Alternatives are included only when real.
 
-For a low-blast-radius internal choice, a concise comparison and recommendation may be complete. Do not invent compatibility, migration, recovery, guards, governance, or artifacts that cannot change the choice. For example, asked whether a retry count belongs in the job record or in worker memory, a complete answer can be two sentences: keep it in the job record, because a worker restart would reset an in-memory count and let a failing job retry forever; the cost is one extra write per attempt.
+For a low-blast-radius internal choice, a concise comparison and recommendation may be complete. Do not invent compatibility, migration, recovery, guards, governance, or artifacts that cannot change the choice. For example, asked which of two classes in one module should own an in-memory lookup table, a complete answer can be two sentences: the class that already updates the table owns it and the other reads through a method, so the table has one writer; the cost is one small method, and the choice is reversible in a single edit.
 
 For Governance, a constructive result may be subtraction, restored enforcement, a cheaper governed path, staged migration, retirement, or justified no action—not a new layer by default.
 
 ## 1. Keep The Spine Small
 
-The spine is the system's chain of load-bearing points, from entry through completion and recovery. Map only the load-bearing points that apply, using repository-native terms. Entry surfaces, mutation admission, accepted state, externally visible effects, completion, and recovery are examples, not a required inventory. When a repository-declared or risk-plausible point is omitted, state why it is absent or inapplicable rather than inventing a stage. Changing or adding an applicable point is a boundary decision.
+The spine is the system's chain of load-bearing points. Map only the load-bearing points that apply, using repository-native terms. Entry surfaces, mutation admission, accepted state, externally visible effects, completion, and recovery are examples, not a required inventory. When a repository-declared or risk-plausible point is omitted, state why it is absent or inapplicable rather than inventing a stage. Changing or adding an applicable point is a boundary decision.
 
 A load-bearing decision chain is not one controller, writer, process, transport, or deployment topology. Multiple execution mechanisms may coexist when they preserve every applicable declared boundary contract. A new or changed load-bearing point is a redesign: name the outcome, force, or blocker it addresses; its reconciliation rule when relevant; and the path it changes or retires.
 
@@ -80,7 +80,7 @@ For each material fact and jurisdiction, use the simplest supported model. Decla
 
 These dimensions coexist; partitioning, replication, quorum, and multi-writer admission do not replace an authority model.
 
-A projection is a derived representation of a fact, such as a generated file, cache, replica, or index. An artifact may project one fact while authoritatively recording another; declare each relation separately. Change a projection through its source and regeneration path. Resolve overlapping fact authority instead of calling writers interchangeable.
+A projection is a representation derived from a fact whose authority lies elsewhere, as a generated file is derived from its template; it is a relation, not a file kind. An artifact may project one fact while authoritatively recording another; declare each relation separately. Change a projection through its source and regeneration path. Resolve overlapping fact authority instead of calling writers interchangeable.
 
 ## 4. Own Boundaries And Target Scope
 
@@ -114,7 +114,7 @@ Keep a traceable reason for each material architecture rule. Add a falsifiable g
 
 Default exception baselines (the recorded lists of tolerated violations) to shrink-only. Growth is a boundary decision that records decision authority, reason, narrow scope, owner, review trigger, and removal condition. Moving code outside a guard's scope is also a boundary change.
 
-Change or retire a Keel rule only when a simpler obligation preserves its invariant or evidence shows that its failure mechanism is no longer decision-relevant. Observed silence alone proves neither.
+Change or retire a Keel rule or a guard only when a simpler obligation preserves its invariant or evidence shows that its failure mechanism is no longer decision-relevant. Observed silence alone proves neither.
 
 ## 7. Keep The Governed Path Cheapest
 

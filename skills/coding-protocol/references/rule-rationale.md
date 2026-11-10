@@ -15,7 +15,7 @@ This is a maintenance index for non-obvious failure mechanisms, not a requiremen
 | **Execution-slice scope inference** — treating a first tranche, sample count, code shape, or later outcome as authority to define or expand the target either underfits stated broader intent or invents unsupported reuse | 4 Handle Material Uncertainty; 5 Keep Changes Small; 8 Carry Work Through; 10 Report Only What Matters |
 | **Collateral changes** — edits to code and comments orthogonal to the task, including parts not sufficiently understood | 5 Keep Changes Small; 6 Preserve User Work |
 | **No self-cleanup** — scaffolding and dead code left behind by the model's own edits | 5 Keep Changes Small (cleanup clause) |
-| **Sycophancy** — agreeing too readily instead of pushing back or surfacing better alternatives | 4 (evidence-conflict clause); 5 (surface the simpler solution) |
+| **Sycophancy** — agreeing too readily instead of pushing back or surfacing better alternatives | 4 (evidence-conflict clause); 5 (prefer the simpler supported solution) |
 | **Contrarian substitution** — replacing an explicitly required mechanism or outcome merely because the agent prefers a simpler one | 4 Handle Material Uncertainty; 5 Keep Changes Small |
 | **Action-scope expansion** — treating a request to review, explain, diagnose, mention, or compare a skill, or the automatic loading of a focused skill, as permission to edit the workspace | 3 Act Within Authority |
 | **Publication expansion** — treating permission to edit locally, or a side effect named only by an automatically loaded workflow, as permission to commit, push, deploy, publish, message externally, or change machine-wide state | 3 Act Within Authority; 6 Preserve User Work |
@@ -28,10 +28,10 @@ This is a maintenance index for non-obvious failure mechanisms, not a requiremen
 | **Irrelevant verification** — citing a required or passing check that does not exercise the changed behavior as proof of correctness, or skipping a required check because a focused proof exists | 9 Verify Proportionally |
 | **Verification inflation** — running expensive broad checks or changing the environment when neither repository policy nor a focused workflow requires them and a cheaper check would provide the same confidence | 1 Scale By Risk; 9 Verify Proportionally |
 | **Dishonest green** — silencing a failing check (suppression comment, loosened assertion, skipped test, scope escape) instead of fixing the cause | 9 Verify Proportionally |
-| **Suppression absolutism** — refusing a narrow, documented boundary suppression even when the underlying source is immutable and the repository policy defines ownership and removal | 9 Verify Proportionally |
+| **Suppression absolutism** — refusing a narrow, documented boundary suppression even when the underlying source is immutable and the repository policy defines ownership and removal | 9 Verify Proportionally; verification.md |
 | **Vacuous test** — a new or changed check has no demonstrated negative control and may pass without exercising the change | 9 Verify Proportionally; verification.md |
 | **Bug-encoding test** — asserting the code's current output instead of the requested behavior, locking the defect in as truth | 9 Verify Proportionally |
-| **Representation-coupled verification** — asserting an incidental or private implementation representation as if it proved behavior, when that exact representation is not the documented contract or guard target | 9 Verify Proportionally |
+| **Representation-coupled verification** — asserting an incidental or private implementation representation as if it proved behavior, when that exact representation is not the documented contract or guard target | 9 Verify Proportionally; verification.md |
 | **Thrashing** — repeated failed fix attempts that widen the blast radius or flip direction instead of stopping with a diagnosis | 9 Verify Proportionally |
 | **Unattended guessing** — with no user available to ask, material ambiguity silently downgrades to a confident guess | 4 Handle Material Uncertainty |
 | **Dropped requirements** — reporting done while parts of the request, a mixed task's applicable execution portion, or a focused workflow's primary completion criterion were silently dropped or reinterpreted | Applicability; Composition; 8 Carry Work Through; 10 Report Only What Matters |
@@ -42,7 +42,7 @@ This is a maintenance index for non-obvious failure mechanisms, not a requiremen
 
 ## Effective working patterns
 
-**Reproduce when useful.** When reproducing a defect or verifying critical behavior, a focused failing check can establish the target before the fix. Prefer existing checks; test-first is an option, not a default requirement for every edit. Whether a test is committed follows section 9; a scratch check can be discarded once it has served. (Informs the bug-fix rungs in sections 1 and 9.)
+**Reproduce when useful.** When reproducing a defect or verifying critical behavior, a focused failing check can establish the target before the fix. Prefer existing checks; test-first is an option, not a default requirement for every edit. Whether a test becomes permanent follows section 9; a scratch check can be discarded once it has served. (Informs the bug-fix rung in section 1 and section 9.)
 
 **Naive-then-optimize.** Start with the obviously correct version, then optimize while preserving correctness. This reduces the risk of subtle bugs introduced by overly clever initial implementations. (Informs section 5.)
 
