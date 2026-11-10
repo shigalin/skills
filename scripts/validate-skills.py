@@ -20,13 +20,39 @@ def error(message):
     errors.append(message)
 
 
-def frontmatter(text):
+SCALAR = re.compile(
+    r'"(?:[^"\\]|\\["\\])*"'  # double-quoted, with only \" and \\ as escapes
+    r"|'(?:[^']|'')*'"  # single-quoted, with '' as the escaped quote
+    r"|[A-Za-z0-9][A-Za-z0-9 ._/-]*"  # plain scalar free of YAML indicators
+)
+
+
+def frontmatter(name, text):
+    """Parse SKILL.md frontmatter, accepting only single-line `key: scalar` entries.
+
+    The standard library has no YAML parser, so any line outside this subset is
+    reported as an error instead of being guessed at.
+    """
     match = re.match(r"---\n(.*?)\n---\n", text, re.S)
+    if not match:
+        error(f"{name}: SKILL.md must start with a frontmatter block closed by '---'")
+        return {}
     fields = {}
-    for line in match.group(1).splitlines() if match else []:
-        key, sep, value = line.partition(":")
-        if sep:
-            fields[key.strip()] = value.strip().strip('"')
+    for line in match.group(1).splitlines():
+        if not line.strip():
+            continue
+        entry = re.fullmatch(r"([A-Za-z][\w-]*): (.+?)\s*", line)
+        if not entry or not SCALAR.fullmatch(entry.group(2)):
+            error(f"{name}: malformed or unsupported frontmatter line: {line[:60]!r}")
+            continue
+        key, value = entry.groups()
+        if key in fields:
+            error(f"{name}: duplicate frontmatter key {key!r}")
+        if value[0] == '"':
+            value = re.sub(r'\\(["\\])', r"\1", value[1:-1])
+        elif value[0] == "'":
+            value = value[1:-1].replace("''", "'")
+        fields[key] = value
     return fields
 
 
@@ -49,7 +75,7 @@ def check_skill(skill_dir):
         return
     text = skill_file.read_text(encoding="utf-8")
 
-    fields = frontmatter(text)
+    fields = frontmatter(name, text)
     if fields.get("name") != name:
         error(f"{name}: frontmatter name {fields.get('name')!r} does not match the directory")
     description = fields.get("description", "")
@@ -114,18 +140,30 @@ def check_manifests():
     return version
 
 
-def check_version_bump(version):
-    """Installed plugin users only receive changes when the version string changes."""
+def check_released_version(version):
+    """Compare skills/ with the tag of the current version and describe the result.
+
+    Installed plugin users stay on a version until its string changes, so once
+    v<version> is tagged, skills/ must not differ from that tag.
+    """
+    tag = f"v{version}"
 
     def git(*args):
-        return subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True, text=True)
+        return subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True, text=True).returncode
 
-    tag = git("describe", "--tags", "--abbrev=0", "--match", "v*")
-    if tag.returncode != 0:
-        print("note: no release tag found; skipping the version-bump check")
-        return
-    if tag.stdout.strip() == f"v{version}" and git("diff", "--quiet", tag.stdout.strip(), "--", "skills").returncode == 1:
-        error(f"skills/ changed since {tag.stdout.strip()} but the plugin version is still {version}; bump it")
+    try:
+        if git("rev-parse", "--git-dir") != 0:
+            return "not a git checkout, release-tag check skipped"
+        if git("rev-parse", "--quiet", "--verify", f"refs/tags/{tag}") != 0:
+            return f"no {tag} tag yet"
+        differs = git("diff", "--quiet", tag, "--", "skills")
+    except OSError:
+        return "git unavailable, release-tag check skipped"
+    if differs == 1:
+        error(f"skills/ differs from the released tag {tag}; bump the plugin version")
+    elif differs != 0:
+        error(f"could not compare skills/ with the tag {tag}")
+    return f"skills/ matches tag {tag}"
 
 
 def main():
@@ -133,15 +171,14 @@ def main():
     for skill_dir in skills:
         check_skill(skill_dir)
     version = check_manifests()
-    if version:
-        check_version_bump(version)
+    release = check_released_version(version) if version else ""
 
     if errors:
         print(f"{len(errors)} problem(s) found:")
         for message in errors:
             print(f"  - {message}")
         return 1
-    print(f"OK: {len(skills)} skills, version {version}")
+    print(f"OK: {len(skills)} skills, version {version} ({release})")
     return 0
 
 

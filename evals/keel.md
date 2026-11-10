@@ -59,3 +59,5 @@ Run the set before and after any edit that rewords a rule. An edit should not tu
 
 | Date | Agent / model | Skill version | K1 | K2 | K3 | K4 | K5 | K6 | K7 | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-10 | Claude Code 2.1.282, claude-opus-5-5 | 1.4.0 (fc2f62a) | pass | pass | pass | pass | pass | partial | pass | Headless `claude -p` with `--setting-sources project --plugin-dir`, skill invoked explicitly, one run per cell. K2 and K3 prompts named the concrete function and label. K6: the new exception recorded no decision authority or review trigger. |
+| 2026-11-10 | Claude Code 2.1.282, claude-opus-5-5 | 1.5.0 (d852d65) | pass | pass | pass | pass | pass | pass | pass | Same setup. The rule that K6 tests reads the same in both versions, so the K6 difference cannot be attributed to the text change. No run without the skill was made. |
