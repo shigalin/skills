@@ -54,6 +54,15 @@ claude plugin install shigalin-skills@shigalin
 - [keel](./skills/keel): Load-bearing architecture design, review, and governance for new and existing systems—authority, ownership, contracts, dependency and state boundaries, recovery, structural change, drift, guards, migration, and deletion.
 - [coding-protocol](./skills/coding-protocol): Risk-scaled repository execution and code-evidence guardrails for authority, target scope, evidence, user-work preservation, environment assumptions, verification, and truthful reporting (ref: [Andrej Karpathy's public observations](https://x.com/karpathy/status/2015883857489522876)).
 
+### Usage
+
+Skills load automatically when a task matches their description. To invoke one explicitly, name it in the request:
+
+- "Use keel to review this RFC's module boundaries."
+- "Use coding-protocol for this bug fix."
+
+For always-on use, add one line to the project's agent instructions file (`AGENTS.md` or `CLAUDE.md`) rather than copying the rules, for example: "Apply the coding-protocol skill to repository changes, debugging, and code review."
+
 ### Recommended Companions
 
 `coding-protocol` and `keel` pair well with:

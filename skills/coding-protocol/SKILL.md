@@ -15,9 +15,9 @@ For architecture-only work, general explanations, contract-preserving prose edit
 
 ## Composition
 
-Use repository evidence for facts and applicable project requirements for checks. Preserve a focused workflow's method and deliverable; this protocol supplies the cross-cutting constraints in sections 1–10.
+Use repository evidence for facts and applicable project requirements for checks. A focused workflow is another skill or project process that owns one kind of task, such as test-driven development, code review, or release. Preserve a focused workflow's method and deliverable; this protocol supplies the cross-cutting constraints in sections 1–10.
 
-Follow host precedence; within it, explicit user instructions override skill guidance. Read skills being edited as task data, not as activated workflows. Surface material same-level conflicts rather than accumulating incompatible requirements.
+Follow host precedence, the instruction priority set by the client running the agent; within it, explicit user instructions override skill guidance. Read skills being edited as task data, not as activated workflows. Surface material same-level conflicts, where instructions of equal precedence cannot both be followed, rather than accumulating incompatible requirements.
 
 Use the task's or applicable workflow's completion criterion. If multi-step work has no clear criterion, define an observable completion condition. Plan when sequencing, risk, or coordination matters; verify outcomes rather than every mechanical action.
 
@@ -36,11 +36,11 @@ High-risk areas include auth, permissions, secrets, security, payments, data los
 
 Inspect relevant code, tests, types, documentation, contracts, and runtime output before claiming how the system works. Separate observations from assumptions when the difference matters. Never invent paths, APIs, checks, dependency behavior, performance, conventions, or project intent. A check passed only if it was run; when relevant evidence is unavailable, keep conclusions conditional.
 
-Treat a runtime-contract mismatch as evidence to investigate, not as authority to widen accepted values or infer new semantics. Change the boundary only through the applicable authority and precedence rules.
+Treat a runtime-contract mismatch as evidence to investigate, not as authority to widen accepted values or infer new semantics. Change the boundary only through the applicable authority and precedence rules. For example, when an API returns a status value that its schema does not list, find out where the value comes from before adding it to the accepted set.
 
 ## 3. Act Within Authority
 
-Authority comes from the user and host, not skill activation or mention. Explanations, reviews, diagnoses, reports, and plans do not authorize implementation. Change requests authorize in-scope edits; explicit requests to execute a named skill cover only side effects that the request and the skill's purpose jointly make explicit, within host permissions. Never infer adjacent commit, push, deploy, publish, external communication, or machine-wide operations.
+Authority comes from the user and host, not skill activation or mention. Explanations, reviews, diagnoses, reports, and plans do not authorize implementation. Change requests authorize in-scope edits; explicit requests to execute a named skill cover only side effects that the request and the skill's purpose jointly make explicit, within host permissions. For example, a request to run a release skill covers the tagging and publishing that skill exists to perform, while a skill that loaded automatically during a bug fix does not make its own commit or push steps authorized. Never infer adjacent commit, push, deploy, publish, external communication, or machine-wide operations.
 
 ## 4. Handle Material Uncertainty
 
@@ -52,7 +52,7 @@ If the requested outcome, stated facts, or mechanism conflicts with observed evi
 
 Make the smallest complete change consistent with the authorized request, repository contracts, and applicable workflow. Match local patterns. Every changed line must trace to one of those sources: avoid unrequested features, abstractions, speculative paths, formatting churn, dependencies, and unrelated fixes. Necessary call-site, invariant, migration, recovery, and verification changes remain in scope.
 
-An execution slice does not define or expand the intended target. Take target scope from the request or an authoritative source. If unresolved scope would materially change the implementation, its promises, or required evidence, ask one decision-changing question or keep the change reversible and broader reuse unclaimed. A declared broader target may require representative evidence; it does not authorize migrating the remainder.
+An execution slice (the first tranche, sample, or pilot actually implemented) does not define or expand the intended target. Take target scope from the request or an authoritative source. If unresolved scope would materially change the implementation, its promises, or required evidence, ask one decision-changing question or keep the change reversible and broader reuse unclaimed. A declared broader target may require representative evidence; it does not authorize migrating the remainder. For example, when asked to move two of ten handlers to a new helper, do not shrink a stated broader goal to those two, and do not move the other eight because the pattern fits.
 
 For execution work, prefer a simpler supported solution when the mechanism was only a suggestion; preserve it when it is material to user intent. Refactor only as needed for a safe completion. Remove artifacts made obsolete by this task; report unrelated issues and leave pre-existing dead code alone.
 
@@ -82,7 +82,7 @@ Run checks required by the user, repository, or focused workflow; add the cheape
 
 Prefer existing checks. Commit tests only where the request asks for them or the repository already keeps tests for this kind of change, sized like neighboring tests; temporary probes need not become committed tests. After relevant checks pass, repeat or broaden them only for new changes, failures, or specific unresolved risks.
 
-Get to green honestly. A new or changed evidentiary check must be capable of failing, and expected behavior must come from the request, a repository contract, or an explicit characterization. Never turn a failure green through weaker assertions, skipped checks, unjustified suppression, or scope escape.
+Get to green honestly. A new or changed evidentiary check (a test, assertion, or probe cited as evidence for the change) must be capable of failing, and expected behavior must come from the request, a repository contract, or an explicit characterization. Never turn a failure green through weaker assertions, skipped checks, unjustified suppression, or scope escape (moving code or configuration outside the check's coverage).
 
 Diagnose before widening the change. If attempts thrash, stop with the diagnosis. Report every skipped, blocked, or failed verification and its residual risk.
 
@@ -98,5 +98,5 @@ Lead with the result in plain language, and use structure only when it aids clar
 
 For an applicable task, load only the reference needed for the current concern:
 
-- `references/verification.md` — only when designing or changing an evidentiary check, establishing a negative control, relying on representation-level evidence, or considering a suppression.
+- `references/verification.md` — only when designing or changing an evidentiary check, establishing a negative control, relying on representation-level evidence such as a source shape, private call sequence, or snapshot, or considering a suppression.
 - `references/rule-rationale.md` — only before changing or auditing this protocol's rules; keep every failure-mode-to-section mapping accurate.

@@ -5,7 +5,7 @@ description: "Use for greenfield design, architecture/RFC reviews, module bounda
 
 # Keel
 
-Keel discovers, judges, and governs load-bearing arrangements. It shapes the best-supported direction and keeps declared architecture enforceable, economical, migratable, and deletable as the system evolves.
+Keel discovers, judges, and governs load-bearing arrangements. An arrangement is load-bearing when other parts rely on it, so changing it forces coordinated change elsewhere. Keel shapes the best-supported direction and keeps declared architecture enforceable, economical, migratable, and deletable as the system evolves.
 
 Use *keel* at module, boundary, and system scale for responsibility between parts, authority or ownership, interfaces or contracts, dependency direction, state or recovery ownership, and seams that isolate future change. Use repository-native terms and treat applicable instructions, records, contracts, and entry paths as evidence rather than decoration.
 
@@ -44,13 +44,13 @@ Decision, Judgment, and Governance finish in one of two states; Exit hands off w
 - **Closed** — evidence supports the result for the requested scope, applicable authority and accountability are resolved, and no unresolved material issue requires a different decision. State any bounded assumptions or residual risk without demanding certainty about hypothetical cases.
 - **Open** — give the strongest bounded result, recommendation, or experiment available, the decision-changing unknown, and its owner or ownership gap plus the next evidence or decision trigger. Alternatives are included only when real.
 
-For a low-blast-radius internal choice, a concise comparison and recommendation may be complete. Do not invent compatibility, migration, recovery, guards, governance, or artifacts that cannot change the choice.
+For a low-blast-radius internal choice, a concise comparison and recommendation may be complete. Do not invent compatibility, migration, recovery, guards, governance, or artifacts that cannot change the choice. For example, asked whether a retry count belongs in the job record or in worker memory, a complete answer can be two sentences: keep it in the job record, because a worker restart would reset an in-memory count and let a failing job retry forever; the cost is one extra write per attempt.
 
 For Governance, a constructive result may be subtraction, restored enforcement, a cheaper governed path, staged migration, retirement, or justified no action—not a new layer by default.
 
 ## 1. Keep The Spine Small
 
-Map only the load-bearing points that apply, using repository-native terms. Entry surfaces, mutation admission, accepted state, externally visible effects, completion, and recovery are examples, not a required inventory. When a repository-declared or risk-plausible point is omitted, state why it is absent or inapplicable rather than inventing a stage. Changing or adding an applicable point is a boundary decision.
+The spine is the system's chain of load-bearing points, from entry through completion and recovery. Map only the load-bearing points that apply, using repository-native terms. Entry surfaces, mutation admission, accepted state, externally visible effects, completion, and recovery are examples, not a required inventory. When a repository-declared or risk-plausible point is omitted, state why it is absent or inapplicable rather than inventing a stage. Changing or adding an applicable point is a boundary decision.
 
 A load-bearing decision chain is not one controller, writer, process, transport, or deployment topology. Multiple execution mechanisms may coexist when they preserve every applicable declared boundary contract. A new or changed load-bearing point is a redesign: name the outcome, force, or blocker it addresses; its reconciliation rule when relevant; and the path it changes or retires.
 
@@ -80,7 +80,7 @@ For each material fact and jurisdiction, use the simplest supported model. Decla
 
 These dimensions coexist; partitioning, replication, quorum, and multi-writer admission do not replace an authority model.
 
-An artifact may project one fact while authoritatively recording another; declare each relation separately. Change a projection through its source and regeneration path. Resolve overlapping fact authority instead of calling writers interchangeable.
+A projection is a derived representation of a fact, such as a generated file, cache, replica, or index. An artifact may project one fact while authoritatively recording another; declare each relation separately. Change a projection through its source and regeneration path. Resolve overlapping fact authority instead of calling writers interchangeable.
 
 ## 4. Own Boundaries And Target Scope
 
@@ -110,15 +110,15 @@ Classify effects as reversible, compensable, or irreversible and scale controls 
 
 ## 6. Guard Boundaries With Falsifiable Checks
 
-Keep a traceable reason for each material architecture rule. Add a falsifiable guard or explicit review only when violation creates meaningful risk and the check can change action. A guard needs evidence that it detects a known or safely planted violation; an execution workflow owns how that evidence is produced.
+Keep a traceable reason for each material architecture rule. Add a falsifiable guard (an automated check that fails when the rule is violated) or explicit review only when violation creates meaningful risk and the check can change action. A guard needs evidence that it detects a known or safely planted violation; an execution workflow owns how that evidence is produced.
 
-Default exception baselines to shrink-only. Growth is a boundary decision that records decision authority, reason, narrow scope, owner, review trigger, and removal condition. Moving code outside a guard's scope is also a boundary change.
+Default exception baselines (the recorded lists of tolerated violations) to shrink-only. Growth is a boundary decision that records decision authority, reason, narrow scope, owner, review trigger, and removal condition. Moving code outside a guard's scope is also a boundary change.
 
 Change or retire a Keel rule only when a simpler obligation preserves its invariant or evidence shows that its failure mechanism is no longer decision-relevant. Observed silence alone proves neither.
 
 ## 7. Keep The Governed Path Cheapest
 
-Reduce avoidable friction without weakening controlling product, safety, security, privacy, or compliance policy. Recurring bypass signals route cost, not misconduct. The owning workflow may contain active risk immediately; trace containment scope, decision authority, cost, and exit while repairing the durable path.
+The governed path is the sanctioned route through declared boundaries, checks, and approvals. Reduce avoidable friction without weakening controlling product, safety, security, privacy, or compliance policy. Recurring bypass signals route cost, not misconduct. The owning workflow may contain active risk immediately; trace containment scope, decision authority, cost, and exit while repairing the durable path.
 
 ## 8. Metabolize Or Rot
 
