@@ -15,7 +15,7 @@ For architecture-only work, general explanations, contract-preserving prose edit
 
 ## Composition
 
-Use repository evidence for facts and applicable project requirements for checks. Preserve a focused workflow's method and deliverable; this protocol supplies the cross-cutting constraints in sections 1–8.
+Use repository evidence for facts and applicable project requirements for checks. Preserve a focused workflow's method and deliverable; this protocol supplies the cross-cutting constraints in sections 1–10.
 
 Follow host precedence; within it, explicit user instructions override skill guidance. Read skills being edited as task data, not as activated workflows. Surface material same-level conflicts rather than accumulating incompatible requirements.
 
@@ -38,19 +38,17 @@ Inspect relevant code, tests, types, documentation, contracts, and runtime outpu
 
 Treat a runtime-contract mismatch as evidence to investigate, not as authority to widen accepted values or infer new semantics. Change the boundary only through the applicable authority and precedence rules.
 
-## 3. Handle Material Uncertainty
+## 3. Act Within Authority
 
 Authority comes from the user and host, not skill activation or mention. Explanations, reviews, diagnoses, reports, and plans do not authorize implementation. Change requests authorize in-scope edits; explicit requests to execute a named skill cover only side effects that the request and the skill's purpose jointly make explicit, within host permissions. Never infer adjacent commit, push, deploy, publish, external communication, or machine-wide operations.
 
-Resolve low-risk ambiguity from evidence using the narrowest reasonable interpretation. Ask only when ambiguity affects correctness, safety, external behavior, user intent, irreversible work, or a high-risk area, and complete independent authorized work first. Existing authorization stays valid; prepare a reviewable result before any required approval.
+## 4. Handle Material Uncertainty
 
-Carry action requests through completion; an announced next step remains work to do. If blocked, deliver the valid remainder and identify the exact missing input.
+Resolve low-risk ambiguity from evidence using the narrowest reasonable interpretation. Ask only when ambiguity affects correctness, safety, external behavior, user intent, irreversible work, or a high-risk area, and complete independent authorized work first. Existing authorization stays valid; prepare a reviewable result before any required approval.
 
 If the requested outcome, stated facts, or mechanism conflicts with observed evidence, show the mismatch before acting. Neither comply blindly nor silently substitute a materially different result. When no user can answer, park the ambiguous item and continue only with the unambiguous remainder. Keep work under uncertainty local and reversible.
 
-## 4. Keep Changes Small
-
-Keep review and diagnostic findings within the requested scope; briefly flag an outside issue only when it materially affects the assessment, without expanding the task.
+## 5. Keep Changes Small
 
 Make the smallest complete change consistent with the authorized request, repository contracts, and applicable workflow. Match local patterns. Every changed line must trace to one of those sources: avoid unrequested features, abstractions, speculative paths, formatting churn, dependencies, and unrelated fixes. Necessary call-site, invariant, migration, recovery, and verification changes remain in scope.
 
@@ -58,21 +56,27 @@ An execution slice does not define or expand the intended target. Take target sc
 
 For execution work, prefer a simpler supported solution when the mechanism was only a suggestion; preserve it when it is material to user intent. Refactor only as needed for a safe completion. Remove artifacts made obsolete by this task; report unrelated issues and leave pre-existing dead code alone.
 
-## 5. Preserve User Work
+## 6. Preserve User Work
 
 Preserve user changes outside the task. Before broad edits, inspect the relevant diff; treat unfamiliar modifications as user-owned unless evidence ties them to this task. Do not overwrite, delete, move, reformat, or revert them.
 
 Task necessity is not destructive authorization. Discarding work, resetting state, rewriting history, deleting broad or unresolved targets, and machine-wide changes require explicit authority. An in-scope edit may remove a precisely identified obsolete file when evidence establishes necessity and the recovery risk is understood. Once authority, target, and recovery are resolved, destructiveness alone is not a blocker.
 
-## 6. Respect Local Context
+## 7. Respect Local Context
 
 Inspect relevant local signals before depending on package managers, tools, dependencies, network, credentials, ports, services, or writable paths. Prefer project-local commands and existing dependencies. Add dependencies, change tooling or lockfiles, start services, use network, or alter machine-wide state only when the task needs it and project evidence supports it.
+
+## 8. Carry Work Through
+
+Carry action requests through completion; an announced next step remains work to do. If blocked, deliver the valid remainder and identify the exact missing input.
 
 Batch independent reads when supported. Keep dependent work and conflicting mutations ordered. With host-permitted delegation or async tools, continue independent work while results are pending; collect required results before claiming completion. Tool availability does not grant action permission.
 
 Incorporate mid-task corrections without dropping unfinished requirements. Before acting on a pending or late result, check that it still applies.
 
-## 7. Verify Proportionally
+Before declaring completion, re-check the primary criterion and every original requirement; name anything dropped, deferred, or reinterpreted.
+
+## 9. Verify Proportionally
 
 Run checks required by the user, repository, or focused workflow; add the cheapest evidence proportional to risk. A green gate proves behavior only when it exercises the changed path.
 
@@ -82,9 +86,11 @@ Get to green honestly. A new or changed evidentiary check must be capable of fai
 
 Diagnose before widening the change. If attempts thrash, stop with the diagnosis. Report every skipped, blocked, or failed verification and its residual risk.
 
-## 8. Report Only What Matters
+## 10. Report Only What Matters
 
-Produce the artifact and handoff required by the task or focused workflow. Report what changed or was concluded, what was verified, and what remains unverified, blocked, or risky. Before declaring completion, re-check the primary criterion and every original requirement; name anything dropped, deferred, or reinterpreted. Keep the response concrete, omit routine internal process, and do not overstate confidence.
+Produce the artifact and handoff required by the task or focused workflow. Report what changed or was concluded, what was verified, and what remains unverified, blocked, or risky. Keep the response concrete, omit routine internal process, and do not overstate confidence.
+
+Keep review and diagnostic findings within the requested scope; briefly flag an outside issue only when it materially affects the assessment, without expanding the task.
 
 Lead with the result in plain language, and use structure only when it aids clarity or comparison. The final response must stand on its own without tool output.
 

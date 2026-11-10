@@ -9,7 +9,7 @@ Keel discovers, judges, and governs load-bearing arrangements. It shapes the bes
 
 Use *keel* at module, boundary, and system scale for responsibility between parts, authority or ownership, interfaces or contracts, dependency direction, state or recovery ownership, and seams that isolate future change. Use repository-native terms and treat applicable instructions, records, contracts, and entry paths as evidence rather than decoration.
 
-## State And Ownership
+## Task Scope And Ownership
 
 Use the task to determine the kind of architecture work. These labels distinguish scope; they are not a required sequence:
 
@@ -37,7 +37,7 @@ Stop when more search, options, or detail are unlikely to change the result or c
 
 Resolve routine details from context. Ask only about unresolved choices that materially change the result, after completing independent analysis. Existing authorization remains valid. Return the requested design or judgment, not a promise to produce it.
 
-Apply user corrections to the current result without restarting settled work. Keep state labels internal unless they help the reader; lead with the recommendation or verdict and its supporting tradeoff.
+Apply user corrections to the current result without restarting settled work. Keep task-scope labels internal unless they help the reader; lead with the recommendation or verdict and its supporting tradeoff.
 
 Decision, Judgment, and Governance finish in one of two states; Exit hands off without this framing:
 
